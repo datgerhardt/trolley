@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "106171174559",
+    "project_id": "fdemo-1c914",
+    "storage_bucket": "fdemo-1c914.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106171174559:android:5acd9d1c841195b8c91caa",
+        "android_client_info": {
+          "package_name": "com.example.trolley"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106171174559-ms61okguq2p0g4lmq28i2pjjate30k9a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqLveFbLip86P099VeB76ObQwPzdMdjiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106171174559-ms61okguq2p0g4lmq28i2pjjate30k9a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
