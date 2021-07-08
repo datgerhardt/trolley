@@ -1,53 +1,62 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trolley/screen/home.dart';
 import 'package:trolley/screen/sign_in.dart';
-import 'package:trolley/service/auth.dart';
 
-Future<void> main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-
-  runApp(App());
-}
-
-class App extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        Provider<AuthenticationService>(
-          create: (_) => AuthenticationService(FirebaseAuth.instance),
-        ),
-        StreamProvider(
-          create: (context) =>
-              context.read<AuthenticationService>().authStateChanges,
-          initialData: null,
-        )
-      ],
+  runApp(ChangeNotifierProvider(
+      create: (_) => null,
       child: MaterialApp(
         title: 'Trolley',
         theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: AuthenticationWrapper(),
-      ),
-    );
-  }
+        home: MyApp(),
+      )));
 }
 
-class AuthenticationWrapper extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final firebaseUser = context.watch<User>();
+class MyApp extends StatefulWidget {
+  _MyAppState createState() => _MyAppState();
+}
 
-    if (firebaseUser != null) {
-      return HomePage();
+class _MyAppState extends State<MyApp> {
+  bool _error = false;
+  bool _initialized = false;
+
+  void _initializeFirebase() async {
+    try {
+      await Firebase.initializeApp();
+      setState(() => _initialized = true);
+    } catch (e) {
+      setState(() => _error = true);
     }
+  }
+
+  void initState() {
+    super.initState();
+    _initializeFirebase();
+  }
+
+  Widget build(BuildContext context) {
+    if (_error) {
+      return Container(
+        color: Colors.white,
+        child: Center(child: Text('An error occured')),
+      );
+    }
+
+    if (!_initialized) {
+      return Container(
+        color: Colors.white,
+        child: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
     return SignInPage();
   }
 }

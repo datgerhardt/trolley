@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:trolley/service/auth.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends StatefulWidget {
+  _SignInPageState createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -24,16 +26,18 @@ class SignInPage extends StatelessWidget {
             ),
           ),
           FloatingActionButton(
-            onPressed: () {
-              context.read<AuthenticationService>().signIn(
-                    email: emailController.text.trim(),
-                    password: passwordController.text.trim(),
-                  );
-            },
+            onPressed: () {},
             child: Text("Sign in"),
           )
         ],
       ),
     );
+    ;
+  }
+
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 }
