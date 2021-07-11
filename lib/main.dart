@@ -2,7 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:trolley/screen/home.dart';
 import 'package:trolley/screen/sign_in.dart';
+import 'package:trolley/screen/sign_up.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,6 +17,12 @@ void main() {
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: MyApp(),
+        // initialRoute: '/',
+        // routes: <String, WidgetBuilder>{
+        //   '/': (BuildContext context) => HomePage(),
+        //   '/sigin': (BuildContext context) => SignIn(),
+        //   '/sigup': (BuildContext context) => SignUp(),
+        // },
       )));
 }
 
@@ -56,7 +64,6 @@ class _MyAppState extends State<MyApp> {
         ),
       );
     }
-
-    return SignInPage();
+    return SignUp();
   }
 }

@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trolley/service/auth.dart';
 
-class SignIn extends StatefulWidget {
-  _SignInState createState() => _SignInState();
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
+
+  @override
+  _SignUpState createState() => _SignUpState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignUpState extends State<SignUp> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -38,29 +41,16 @@ class _SignInState extends State<SignIn> {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.all(16.0),
-            child: ElevatedButton(
-              onPressed: () {
-                context.read<AuthenticationService>().signIn(
-                    email: emailController.text,
-                    password: passwordController.text);
-                // ignore: unnecessary_statements
-                // Navigator.defaultRouteName;
-              },
-              child: Text("Sign in"),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(16.0),
-            child: ElevatedButton(
-              onPressed: () {
-                // ignore: unnecessary_statements
-                // Navigator.defaultRouteName;
-              },
-              child: Text("Sign Up"),
-            ),
-          ),
+          ElevatedButton(
+            onPressed: () {
+              context.read<AuthenticationService>().signUp(
+                  email: emailController.text,
+                  password: passwordController.text);
+              // ignore: unnecessary_statements
+              // Navigator.defaultRouteName;
+            },
+            child: Text("Sign up"),
+          )
         ],
       ),
     );

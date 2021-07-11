@@ -18,7 +18,7 @@ class AuthenticationService {
           email: email, password: password);
       return "Signed in";
     } on FirebaseAuthException catch (e) {
-      return "Error with Sign In";
+      throw Exception("Error with Sign In");
     }
   }
 
