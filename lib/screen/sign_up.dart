@@ -4,6 +4,7 @@ import 'package:trolley/service/auth.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
+  static const String idscreen = 'signup';
 
   @override
   _SignUpState createState() => _SignUpState();
@@ -43,6 +44,7 @@ class _SignUpState extends State<SignUp> {
           ),
           ElevatedButton(
             onPressed: () {
+              Navigator.pushNamed(context, "/TakePictureScreen");
               context.read<AuthenticationService>().signUp(
                   email: emailController.text,
                   password: passwordController.text);

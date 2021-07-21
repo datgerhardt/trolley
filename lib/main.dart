@@ -1,28 +1,35 @@
+import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:trolley/camera.dart';
 import 'package:trolley/screen/home.dart';
 import 'package:trolley/screen/sign_in.dart';
 import 'package:trolley/screen/sign_up.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final cameras = await availableCameras();
+  final firstCamera = cameras.first;
   runApp(ChangeNotifierProvider(
       create: (_) => null,
       child: MaterialApp(
         title: 'Trolley',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          //primarySwatch: Colors.white,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: MyApp(),
-        // initialRoute: '/',
-        // routes: <String, WidgetBuilder>{
-        //   '/': (BuildContext context) => HomePage(),
-        //   '/sigin': (BuildContext context) => SignIn(),
-        //   '/sigup': (BuildContext context) => SignUp(),
-        // },
+        initialRoute: SignIn.idscreen,
+        routes: {
+          HomePage.idscreen: (context) => HomePage(),
+          SignIn.idscreen: (context) => SignIn(),
+          "/SignUp": (context) => SignUp(),
+          "/TakePictureScreen": (context) => TakePictureScreen(
+                camera: firstCamera,
+              )
+        },
       )));
 }
 
@@ -64,6 +71,6 @@ class _MyAppState extends State<MyApp> {
         ),
       );
     }
-    return SignUp();
+    return SignIn();
   }
 }

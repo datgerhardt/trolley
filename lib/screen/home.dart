@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:trolley/service/auth.dart';
 
 class HomePage extends StatelessWidget {
+  static const String idscreen = 'home';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
