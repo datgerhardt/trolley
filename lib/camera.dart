@@ -3,8 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:trolley/screen/imageDisplay.dart';
 
-import 'imageDisplay.dart';
-
 class TakePictureScreen extends StatefulWidget {
   static const String idscreen = 'camera';
   final CameraDescription camera;

@@ -16,7 +16,7 @@ class _SignInState extends State<SignIn> {
     final ButtonStyle style = ElevatedButton.styleFrom(
       // background color
       primary: Colors.black,
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+      padding: EdgeInsets.symmetric(horizontal: 140, vertical: 20),
       //textStyle: TextStyle(fontSize: 20),
     );
 
@@ -57,7 +57,7 @@ class _SignInState extends State<SignIn> {
                     email: emailController.text,
                     password: passwordController.text);
               },
-              child: Text("Sign in"),
+              child: Text("Sign In"),
             ),
           ),
           Padding(

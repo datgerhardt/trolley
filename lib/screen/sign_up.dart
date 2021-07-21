@@ -14,12 +14,11 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final ButtonStyle style = ElevatedButton.styleFrom(
-      // background color
-      primary: Colors.black,
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-      //textStyle: TextStyle(fontSize: 20),
-    );
-
+    // background color
+    primary: Colors.black,
+    padding: EdgeInsets.symmetric(horizontal: 140, vertical: 20),
+    //textStyle: TextStyle(fontSize: 20),
+  );
 
   @override
   Widget build(BuildContext context) {
