@@ -26,6 +26,13 @@ class _SignInState extends State<SignIn> {
         children: [
           Padding(
             padding: EdgeInsets.all(16.0),
+            child: Text(
+              "Log In",
+              style: Theme.of(context).textTheme.headline6,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(16.0),
             child: TextField(
               controller: emailController,
               decoration: InputDecoration(
@@ -52,7 +59,7 @@ class _SignInState extends State<SignIn> {
               style: style,
               onPressed: () {
                 // ignore: unnecessary_statements
-                Navigator.pushNamed(context, "/TakePictureScreen");
+                Navigator.pushNamed(context, "/snap");
                 context.read<AuthenticationService>().signIn(
                     email: emailController.text,
                     password: passwordController.text);

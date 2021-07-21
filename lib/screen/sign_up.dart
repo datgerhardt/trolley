@@ -28,6 +28,13 @@ class _SignUpState extends State<SignUp> {
         children: [
           Padding(
             padding: EdgeInsets.all(16.0),
+            child: Text(
+              "Create an account",
+              style: Theme.of(context).textTheme.headline6,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(16.0),
             child: TextField(
               controller: emailController,
               decoration: InputDecoration(
