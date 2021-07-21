@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trolley/service/auth.dart';
 
-import '../camera.dart';
-
 class SignIn extends StatefulWidget {
   _SignInState createState() => _SignInState();
   static const String idscreen = 'signin';
@@ -16,8 +14,10 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style = ElevatedButton.styleFrom(
-      textStyle: const TextStyle(fontSize: 20),
-      padding: EdgeInsets.all(16.0),
+      // background color
+      primary: Colors.black,
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+      //textStyle: TextStyle(fontSize: 20),
     );
 
     return Scaffold(
@@ -63,6 +63,7 @@ class _SignInState extends State<SignIn> {
           Padding(
             padding: EdgeInsets.all(1.0),
             child: ElevatedButton(
+              style: style,
               onPressed: () {
                 // ignore: unnecessary_statements
                 Navigator.pushNamed(context, "/SignUp");

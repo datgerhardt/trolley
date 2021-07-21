@@ -13,6 +13,13 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final ButtonStyle style = ElevatedButton.styleFrom(
+      // background color
+      primary: Colors.black,
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+      //textStyle: TextStyle(fontSize: 20),
+    );
+
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +50,7 @@ class _SignUpState extends State<SignUp> {
             ),
           ),
           ElevatedButton(
+            style: style,
             onPressed: () {
               Navigator.pushNamed(context, "/TakePictureScreen");
               context.read<AuthenticationService>().signUp(
